@@ -1,0 +1,136 @@
+customer_id,primary_country,recency_days,frequency_orders,monetary_revenue,monetary_quartile,rfm_segment
+15098,United Kingdom,174,3,39916.5,4,High-Value At Risk
+16180,United Kingdom,92,8,10254.18,4,High-Value At Risk
+12980,United Kingdom,149,9,7374.900000000001,4,High-Value At Risk
+13027,United Kingdom,105,6,6912.0,4,High-Value At Risk
+16553,United Kingdom,155,12,5719.82,4,High-Value At Risk
+12688,Israel,105,1,4873.81,4,High-Value At Risk
+13802,United Kingdom,130,3,4599.42,4,High-Value At Risk
+14016,EIRE,153,4,4341.21,4,High-Value At Risk
+12378,Switzerland,121,1,4008.62,4,High-Value At Risk
+18073,United Kingdom,106,12,3859.82,4,High-Value At Risk
+14364,United Kingdom,100,8,3717.35,4,High-Value At Risk
+15379,United Kingdom,161,7,3703.29,4,High-Value At Risk
+15581,United Kingdom,112,13,3675.77,4,High-Value At Risk
+13082,United Kingdom,118,9,3613.63,4,High-Value At Risk
+12643,France,120,6,3344.64,4,High-Value At Risk
+17723,United Kingdom,119,6,3276.4000000000005,4,High-Value At Risk
+13869,United Kingdom,115,4,3083.65,4,High-Value At Risk
+13631,United Kingdom,91,11,3070.42,4,High-Value At Risk
+12916,United Kingdom,130,4,2944.95,4,High-Value At Risk
+17444,Canada,139,3,2940.04,4,High-Value At Risk
+12758,Portugal,108,2,2791.59,4,High-Value At Risk
+12669,France,142,3,2744.0299999999997,4,High-Value At Risk
+12840,United Kingdom,135,4,2726.77,4,High-Value At Risk
+18260,United Kingdom,164,6,2628.35,4,High-Value At Risk
+16919,United Kingdom,148,11,2592.25,4,High-Value At Risk
+15245,United Kingdom,126,3,2515.84,4,High-Value At Risk
+16938,United Kingdom,171,3,2386.05,4,High-Value At Risk
+13722,United Kingdom,123,3,2375.41,4,High-Value At Risk
+14930,Channel Islands,100,3,2362.96,4,High-Value At Risk
+16550,United Kingdom,100,5,2298.9700000000003,4,High-Value At Risk
+15704,United Kingdom,132,4,2293.62,4,High-Value At Risk
+15665,United Kingdom,160,2,2222.21,4,High-Value At Risk
+12653,Israel,140,2,2209.85,4,High-Value At Risk
+15797,United Kingdom,105,4,2207.4,4,High-Value At Risk
+16456,United Kingdom,91,5,2158.18,4,High-Value At Risk
+14407,United Kingdom,99,6,2157.73,4,High-Value At Risk
+14461,United Kingdom,140,3,2103.06,4,High-Value At Risk
+17400,United Kingdom,118,5,2097.84,4,High-Value At Risk
+12782,Portugal,141,4,2078.67,4,High-Value At Risk
+13593,United Kingdom,100,5,2011.88,4,High-Value At Risk
+15372,United Kingdom,129,1,2007.3999999999999,4,High-Value At Risk
+18097,United Kingdom,118,5,1986.2,4,High-Value At Risk
+17337,United Kingdom,143,4,1981.06,4,High-Value At Risk
+12853,United Kingdom,126,6,1957.1000000000001,4,High-Value At Risk
+16143,United Kingdom,100,5,1949.3600000000001,4,High-Value At Risk
+14210,United Kingdom,97,6,1905.8400000000001,4,High-Value At Risk
+15641,United Kingdom,97,4,1887.2,4,High-Value At Risk
+14472,United Kingdom,95,8,1852.67,4,High-Value At Risk
+12383,Belgium,176,5,1850.56,4,High-Value At Risk
+14459,United Kingdom,147,1,1837.92,4,High-Value At Risk
+17787,United Kingdom,144,4,1817.54,4,High-Value At Risk
+15260,United Kingdom,92,7,1810.77,4,High-Value At Risk
+15812,United Kingdom,99,5,1801.14,4,High-Value At Risk
+12424,Australia,154,2,1760.96,4,High-Value At Risk
+17353,United Kingdom,121,2,1740.0,4,High-Value At Risk
+17457,United Kingdom,118,5,1737.6999999999998,4,High-Value At Risk
+13564,United Kingdom,136,3,1724.67,4,High-Value At Risk
+12405,Finland,140,1,1710.39,4,High-Value At Risk
+16902,United Kingdom,108,1,1706.88,4,High-Value At Risk
+16398,United Kingdom,146,2,1705.8000000000002,4,High-Value At Risk
+17386,United Kingdom,91,5,1697.3400000000001,4,High-Value At Risk
+13162,United Kingdom,114,4,1688.29,4,High-Value At Risk
+17282,United Kingdom,122,3,1685.46,4,High-Value At Risk
+18245,United Kingdom,141,6,1672.81,4,High-Value At Risk
+14045,United Kingdom,101,4,1659.75,4,High-Value At Risk
+12423,Belgium,92,7,1650.67,4,High-Value At Risk
+15002,United Kingdom,107,4,1641.76,4,High-Value At Risk
+14573,United Kingdom,171,9,1639.82,4,High-Value At Risk
+15122,United Kingdom,106,3,1633.78,4,High-Value At Risk
+13425,United Kingdom,100,3,1624.21,4,High-Value At Risk
+14918,United Kingdom,107,2,1610.15,4,High-Value At Risk
+12868,United Kingdom,177,6,1607.0600000000002,4,High-Value At Risk
+12947,United Kingdom,135,6,1603.99,4,High-Value At Risk
+13850,United Kingdom,121,1,1595.48,4,High-Value At Risk
+17085,United Kingdom,115,5,1562.4,3,High-Value At Risk
+15596,United Kingdom,92,5,1406.59,3,High-Value At Risk
+15569,United Kingdom,95,5,1375.71,3,High-Value At Risk
+14745,United Kingdom,104,5,1220.26,3,High-Value At Risk
+13752,United Kingdom,116,6,1175.38,3,High-Value At Risk
+18168,United Kingdom,168,6,1160.04,3,High-Value At Risk
+14078,United Kingdom,93,6,1049.37,3,High-Value At Risk
+17126,United Kingdom,144,5,989.4499999999999,3,High-Value At Risk
+16419,United Kingdom,104,6,958.71,3,High-Value At Risk
+14344,United Kingdom,119,8,889.9300000000001,3,High-Value At Risk
+14289,United Kingdom,126,5,832.7800000000001,3,High-Value At Risk
+12951,United Kingdom,165,5,751.78,3,High-Value At Risk
+15855,United Kingdom,128,5,712.24,3,High-Value At Risk
+17874,United Kingdom,177,6,683.46,3,High-Value At Risk
+14083,United Kingdom,118,7,533.39,2,High-Value At Risk
+17869,United Kingdom,99,5,428.18,2,High-Value At Risk
+15938,United Kingdom,104,5,404.58000000000004,2,High-Value At Risk
+18037,United Kingdom,146,6,70.02,1,High-Value At Risk
+12346,United Kingdom,317,1,77183.6,4,High-Value Lapsed
+15749,United Kingdom,227,3,44534.3,4,High-Value Lapsed
+12590,Germany,203,2,9864.26,4,High-Value Lapsed
+13093,United Kingdom,267,8,7832.47,4,High-Value Lapsed
+17850,United Kingdom,364,34,5391.21,4,High-Value Lapsed
+15032,United Kingdom,248,3,4959.1,4,High-Value Lapsed
+12755,Japan,272,2,3811.95,4,High-Value Lapsed
+15808,United Kingdom,298,4,3651.27,4,High-Value Lapsed
+17230,United Kingdom,256,8,3638.41,4,High-Value Lapsed
+13952,United Kingdom,209,2,3251.071,4,High-Value Lapsed
+13135,United Kingdom,188,1,3096.0,4,High-Value Lapsed
+12754,Japan,227,4,3010.74,4,High-Value Lapsed
+17504,United Kingdom,198,9,2997.03,4,High-Value Lapsed
+12625,Germany,203,2,2683.8199999999997,4,High-Value Lapsed
+14439,Greece,311,1,2661.24,4,High-Value Lapsed
+15235,United Kingdom,209,12,2247.51,4,High-Value Lapsed
+17406,United Kingdom,325,3,2184.42,4,High-Value Lapsed
+12501,Germany,328,1,2169.39,4,High-Value Lapsed
+14828,United Kingdom,188,3,2139.76,4,High-Value Lapsed
+18231,United Kingdom,184,5,2071.77,4,High-Value Lapsed
+17597,United Kingdom,205,1,2044.3700000000001,4,High-Value Lapsed
+12585,Germany,226,2,2040.1,4,High-Value Lapsed
+16754,United Kingdom,364,1,2002.4,4,High-Value Lapsed
+16698,United Kingdom,218,2,1998.0,4,High-Value Lapsed
+16152,United Kingdom,260,1,1829.04,4,High-Value Lapsed
+14935,Channel Islands,289,1,1784.71,4,High-Value Lapsed
+12764,Lebanon,308,1,1693.88,4,High-Value Lapsed
+14245,United Kingdom,211,2,1693.45,4,High-Value Lapsed
+17152,United Kingdom,186,3,1689.5,4,High-Value Lapsed
+15332,Lithuania,358,4,1661.06,4,High-Value Lapsed
+12967,United Kingdom,350,2,1660.9,4,High-Value Lapsed
+12377,Switzerland,307,2,1628.12,4,High-Value Lapsed
+18239,United Kingdom,210,5,1561.6100000000001,3,High-Value Lapsed
+17770,United Kingdom,190,5,1143.27,3,High-Value Lapsed
+13715,United Kingdom,273,5,1077.39,3,High-Value Lapsed
+15658,United Kingdom,182,5,1024.1,3,High-Value Lapsed
+15508,United Kingdom,181,6,1000.27,3,High-Value Lapsed
+16725,United Kingdom,294,7,758.27,3,High-Value Lapsed
+16306,United Kingdom,205,6,632.27,2,High-Value Lapsed
+12601,Germany,181,5,577.06,2,High-Value Lapsed
+15881,United Kingdom,304,5,501.39000000000004,2,High-Value Lapsed
+15107,United Kingdom,303,6,319.5,2,High-Value Lapsed
+17912,United Kingdom,302,5,310.06,2,High-Value Lapsed

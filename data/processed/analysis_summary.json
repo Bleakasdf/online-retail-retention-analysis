@@ -1,0 +1,170 @@
+{
+  "source_rows": 1067371,
+  "analysis_end_exclusive": "2011-12-01",
+  "headline": {
+    "customers": 5850.0,
+    "orders": 36255.0,
+    "revenue": 16857595.828,
+    "repeat_orders": 30405.0,
+    "repeat_revenue": 14459189.44,
+    "repeat_revenue_share": 0.8577254780295351,
+    "m1_retention": 0.23449372680685635,
+    "m3_retention": 0.24861878453038674,
+    "m6_retention": 0.22075815933509021
+  },
+  "retention_horizons": {
+    "m1": 0.23449372680685635,
+    "m3": 0.24861878453038674,
+    "m6": 0.22075815933509021
+  },
+  "rfm_segments": [
+    {
+      "rfm_segment": "Loyal Active",
+      "customers": 1186,
+      "trailing_12m_revenue": 6388529.34,
+      "avg_customer_revenue": 5386.618330522765,
+      "avg_recency_days": 23.595278246205734,
+      "avg_orders": 9.877740303541316
+    },
+    {
+      "rfm_segment": "Repeat Active",
+      "customers": 996,
+      "trailing_12m_revenue": 739676.932,
+      "avg_customer_revenue": 742.6475220883534,
+      "avg_recency_days": 32.833333333333336,
+      "avg_orders": 2.748995983935743
+    },
+    {
+      "rfm_segment": "Hibernating",
+      "customers": 804,
+      "trailing_12m_revenue": 291477.79,
+      "avg_customer_revenue": 362.53456467661687,
+      "avg_recency_days": 265.9378109452736,
+      "avg_orders": 1.3296019900497513
+    },
+    {
+      "rfm_segment": "Occasional At Risk",
+      "customers": 518,
+      "trailing_12m_revenue": 255990.81,
+      "avg_customer_revenue": 494.1907528957529,
+      "avg_recency_days": 134.90540540540542,
+      "avg_orders": 1.8532818532818534
+    },
+    {
+      "rfm_segment": "High-Value At Risk",
+      "customers": 92,
+      "trailing_12m_revenue": 248139.08000000002,
+      "avg_customer_revenue": 2697.1639130434783,
+      "avg_recency_days": 124.15217391304348,
+      "avg_orders": 4.934782608695652
+    },
+    {
+      "rfm_segment": "New / One-time Recent",
+      "customers": 658,
+      "trailing_12m_revenue": 226194.461,
+      "avg_customer_revenue": 343.7605790273556,
+      "avg_recency_days": 40.066869300911854,
+      "avg_orders": 1.0
+    },
+    {
+      "rfm_segment": "High-Value Lapsed",
+      "customers": 43,
+      "trailing_12m_revenue": 220010.041,
+      "avg_customer_revenue": 5116.512581395349,
+      "avg_recency_days": 254.1627906976744,
+      "avg_orders": 4.4186046511627906
+    }
+  ],
+  "top_country_priorities": [
+    {
+      "country": "United Kingdom",
+      "customers": 3886,
+      "target_customers": 109,
+      "target_customer_share": 0.028049408131755018,
+      "trailing_12m_revenue": 6813642.824,
+      "target_historical_revenue": 395894.791,
+      "target_revenue_share": 0.058103249792537115
+    },
+    {
+      "country": "Germany",
+      "customers": 93,
+      "target_customers": 5,
+      "target_customer_share": 0.053763440860215055,
+      "trailing_12m_revenue": 220694.23,
+      "target_historical_revenue": 17334.63,
+      "target_revenue_share": 0.0785459139552493
+    },
+    {
+      "country": "Israel",
+      "customers": 3,
+      "target_customers": 2,
+      "target_customer_share": 0.6666666666666666,
+      "trailing_12m_revenue": 7215.84,
+      "target_historical_revenue": 7083.66,
+      "target_revenue_share": 0.981681966340717
+    },
+    {
+      "country": "Japan",
+      "customers": 8,
+      "target_customers": 2,
+      "target_customer_share": 0.25,
+      "trailing_12m_revenue": 37416.37,
+      "target_historical_revenue": 6822.69,
+      "target_revenue_share": 0.18234505378260904
+    },
+    {
+      "country": "France",
+      "customers": 86,
+      "target_customers": 2,
+      "target_customer_share": 0.023255813953488372,
+      "trailing_12m_revenue": 201657.39,
+      "target_historical_revenue": 6088.67,
+      "target_revenue_share": 0.03019314095059943
+    },
+    {
+      "country": "Switzerland",
+      "customers": 21,
+      "target_customers": 2,
+      "target_customer_share": 0.09523809523809523,
+      "trailing_12m_revenue": 57222.85,
+      "target_historical_revenue": 5636.74,
+      "target_revenue_share": 0.09850505523580178
+    },
+    {
+      "country": "Portugal",
+      "customers": 19,
+      "target_customers": 2,
+      "target_customer_share": 0.10526315789473684,
+      "trailing_12m_revenue": 30567.65,
+      "target_historical_revenue": 4870.26,
+      "target_revenue_share": 0.15932726264531294
+    },
+    {
+      "country": "EIRE",
+      "customers": 3,
+      "target_customers": 1,
+      "target_customer_share": 0.3333333333333333,
+      "trailing_12m_revenue": 258283.54,
+      "target_historical_revenue": 4341.21,
+      "target_revenue_share": 0.016807923571126523
+    },
+    {
+      "country": "Channel Islands",
+      "customers": 9,
+      "target_customers": 2,
+      "target_customer_share": 0.2222222222222222,
+      "trailing_12m_revenue": 20242.14,
+      "target_historical_revenue": 4147.67,
+      "target_revenue_share": 0.20490274249659374
+    },
+    {
+      "country": "Belgium",
+      "customers": 24,
+      "target_customers": 2,
+      "target_customer_share": 0.08333333333333333,
+      "trailing_12m_revenue": 40133.53,
+      "target_historical_revenue": 3501.23,
+      "target_revenue_share": 0.08723952266346868
+    }
+  ]
+}

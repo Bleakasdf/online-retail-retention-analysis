@@ -1,0 +1,54 @@
+table rfm_segments
+
+	measure 'Segment customers' = SUM(rfm_segments[customers])
+		formatString: #,##0
+
+	measure 'Trailing revenue' = SUM(rfm_segments[trailing_12m_revenue])
+		formatString: £ #,##0
+
+	measure 'Average recency' = AVERAGE(rfm_segments[avg_recency_days])
+		formatString: 0
+
+	column Segment
+		dataType: string
+		summarizeBy: none
+		sourceColumn: rfm_segment
+
+	column customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: customers
+
+	column trailing_12m_revenue
+		dataType: double
+		formatString: £ #,##0
+		summarizeBy: none
+		sourceColumn: trailing_12m_revenue
+
+	column avg_customer_revenue
+		dataType: double
+		formatString: £ #,##0
+		summarizeBy: none
+		sourceColumn: avg_customer_revenue
+
+	column avg_recency_days
+		dataType: double
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: avg_recency_days
+
+	column avg_orders
+		dataType: double
+		formatString: 0.0
+		summarizeBy: none
+		sourceColumn: avg_orders
+
+	partition rfm_segments = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(#"DataFolder" & "\rfm_segments.csv"), [Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"rfm_segment", type text}, {"customers", Int64.Type}, {"trailing_12m_revenue", type number}, {"avg_customer_revenue", type number}, {"avg_recency_days", type number}, {"avg_orders", type number}}, "en-US")
+			in
+				Typed

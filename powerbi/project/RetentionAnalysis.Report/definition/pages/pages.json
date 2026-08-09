@@ -1,0 +1,9 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "pageOrder": [
+    "01retentionoverview000",
+    "02segmentdecision0000",
+    "03crmpriority000000"
+  ],
+  "activePageName": "01retentionoverview000"
+}

@@ -1,0 +1,4 @@
+month_number,horizon,retained_customers,eligible_cohort_customers,weighted_retention_rate
+1,M1,1327,5659,0.23449372680685635
+3,M3,1305,5249,0.24861878453038674
+6,M6,1089,4933,0.22075815933509021

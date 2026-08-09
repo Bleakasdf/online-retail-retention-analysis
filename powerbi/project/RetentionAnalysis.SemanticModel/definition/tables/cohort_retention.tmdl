@@ -1,0 +1,45 @@
+table cohort_retention
+
+	measure 'Cohort retention' = AVERAGE(cohort_retention[retention_rate])
+		formatString: 0.0%
+
+	column Cohort
+		dataType: string
+		summarizeBy: none
+		sourceColumn: cohort_month
+
+	column month_number
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: month_number
+
+	column Horizon
+		dataType: string
+		summarizeBy: none
+		sourceColumn: horizon
+
+	column cohort_size
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: cohort_size
+
+	column retained_customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: retained_customers
+
+	column retention_rate
+		dataType: double
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: retention_rate
+
+	partition cohort_retention = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(#"DataFolder" & "\cohort_retention.csv"), [Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"cohort_month", type text}, {"month_number", Int64.Type}, {"horizon", type text}, {"cohort_size", Int64.Type}, {"retained_customers", Int64.Type}, {"retention_rate", type number}}, "en-US")
+			in
+				Typed

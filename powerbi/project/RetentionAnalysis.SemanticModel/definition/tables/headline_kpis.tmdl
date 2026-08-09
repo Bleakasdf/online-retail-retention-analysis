@@ -1,0 +1,77 @@
+table headline_kpis
+
+	measure 'Total customers' = MAX(headline_kpis[customers])
+		formatString: #,##0
+
+	measure 'Total orders' = MAX(headline_kpis[orders])
+		formatString: #,##0
+
+	measure 'Total revenue' = MAX(headline_kpis[revenue])
+		formatString: £ #,##0
+
+	measure 'Repeat revenue share' = MAX(headline_kpis[repeat_revenue_share])
+		formatString: 0.0%
+
+	measure 'M1 retention' = MAX(headline_kpis[m1_retention])
+		formatString: 0.0%
+
+	measure 'M3 retention' = MAX(headline_kpis[m3_retention])
+		formatString: 0.0%
+
+	measure 'M6 retention' = MAX(headline_kpis[m6_retention])
+		formatString: 0.0%
+
+	column customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: customers
+
+	column orders
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: orders
+
+	column revenue
+		dataType: double
+		summarizeBy: none
+		sourceColumn: revenue
+
+	column repeat_orders
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: repeat_orders
+
+	column repeat_revenue
+		dataType: double
+		summarizeBy: none
+		sourceColumn: repeat_revenue
+
+	column repeat_revenue_share
+		dataType: double
+		summarizeBy: none
+		sourceColumn: repeat_revenue_share
+
+	column m1_retention
+		dataType: double
+		summarizeBy: none
+		sourceColumn: m1_retention
+
+	column m3_retention
+		dataType: double
+		summarizeBy: none
+		sourceColumn: m3_retention
+
+	column m6_retention
+		dataType: double
+		summarizeBy: none
+		sourceColumn: m6_retention
+
+	partition headline_kpis = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(#"DataFolder" & "\headline_kpis.csv"), [Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"customers", Int64.Type}, {"orders", Int64.Type}, {"revenue", type number}, {"repeat_orders", Int64.Type}, {"repeat_revenue", type number}, {"repeat_revenue_share", type number}, {"m1_retention", type number}, {"m3_retention", type number}, {"m6_retention", type number}}, "en-US")
+			in
+				Typed

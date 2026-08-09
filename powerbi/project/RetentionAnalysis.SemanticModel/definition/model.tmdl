@@ -1,0 +1,19 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	discourageImplicitMeasures
+
+expression DataFolder = "C:\path\to\online-retail-retention-analysis\data\powerbi" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+
+ref table headline_kpis
+ref table monthly_metrics
+ref table retention_horizons
+ref table cohort_summary
+ref table cohort_retention
+ref table rfm_backtest
+ref table rfm_segments
+ref table priority_kpis
+ref table segment_decision
+ref table country_priority
+ref table product_affinity

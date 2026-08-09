@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "p3note0000000000000",
+  "position": {
+    "x": 1080,
+    "y": 680,
+    "z": 100,
+    "height": 260,
+    "width": 760,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Start in the United Kingdom because it contains most target customers and target historical revenue. Use previously purchased products as offer context, not as proof that a specific product will cause repurchase. Treat smaller markets as exploratory due to limited sample sizes.",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI",
+                      "fontSize": "18px",
+                      "fontWeight": "normal",
+                      "color": "#172B4D"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "left"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

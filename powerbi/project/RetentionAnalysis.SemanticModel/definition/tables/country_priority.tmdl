@@ -1,0 +1,59 @@
+table country_priority
+
+	measure 'Market target customers' = SUM(country_priority[Target customers])
+		formatString: #,##0
+
+	measure 'Market target revenue' = SUM(country_priority[Target historical revenue])
+		formatString: £ #,##0
+
+	measure 'Market target share' = AVERAGE(country_priority[Target customer share])
+		formatString: 0.0%
+
+	column Country
+		dataType: string
+		summarizeBy: none
+		sourceColumn: country
+
+	column Customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: customers
+
+	column 'Target customers'
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: target_customers
+
+	column 'Target customer share'
+		dataType: double
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: target_customer_share
+
+	column 'Trailing revenue'
+		dataType: double
+		formatString: £ #,##0
+		summarizeBy: none
+		sourceColumn: trailing_12m_revenue
+
+	column 'Target historical revenue'
+		dataType: double
+		formatString: £ #,##0
+		summarizeBy: none
+		sourceColumn: target_historical_revenue
+
+	column 'Target revenue share'
+		dataType: double
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: target_revenue_share
+
+	partition country_priority = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(#"DataFolder" & "\country_priority.csv"), [Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"country", type text}, {"customers", Int64.Type}, {"target_customers", Int64.Type}, {"target_customer_share", type number}, {"trailing_12m_revenue", type number}, {"target_historical_revenue", type number}, {"target_revenue_share", type number}}, "en-US")
+			in
+				Typed

@@ -1,0 +1,70 @@
+table monthly_metrics
+
+	measure 'Monthly repeat revenue share' = AVERAGE(monthly_metrics[repeat_revenue_share])
+		formatString: 0.0%
+
+	measure 'Monthly revenue' = SUM(monthly_metrics[revenue])
+		formatString: £ #,##0
+
+	measure 'Active customers' = SUM(monthly_metrics[active_customers])
+		formatString: #,##0
+
+	column Month
+		dataType: string
+		summarizeBy: none
+		sourceColumn: activity_month
+
+	column active_customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: active_customers
+
+	column new_customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: new_customers
+
+	column returning_customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: returning_customers
+
+	column orders
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: orders
+
+	column repeat_orders
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: repeat_orders
+
+	column revenue
+		dataType: double
+		summarizeBy: none
+		sourceColumn: revenue
+
+	column repeat_order_revenue
+		dataType: double
+		summarizeBy: none
+		sourceColumn: repeat_order_revenue
+
+	column returning_customer_share
+		dataType: double
+		summarizeBy: none
+		sourceColumn: returning_customer_share
+
+	column repeat_revenue_share
+		dataType: double
+		summarizeBy: none
+		sourceColumn: repeat_revenue_share
+
+	partition monthly_metrics = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(#"DataFolder" & "\monthly_metrics.csv"), [Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"activity_month", type text}, {"active_customers", Int64.Type}, {"new_customers", Int64.Type}, {"returning_customers", Int64.Type}, {"orders", Int64.Type}, {"repeat_orders", Int64.Type}, {"revenue", type number}, {"repeat_order_revenue", type number}, {"returning_customer_share", type number}, {"repeat_revenue_share", type number}}, "en-US")
+			in
+				Typed

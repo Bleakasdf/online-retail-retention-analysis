@@ -1,0 +1,40 @@
+table cohort_summary
+
+	column Cohort
+		dataType: string
+		summarizeBy: none
+		sourceColumn: cohort_month
+
+	column M0
+		dataType: double
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: m0
+
+	column M1
+		dataType: double
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: m1
+
+	column M3
+		dataType: double
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: m3
+
+	column M6
+		dataType: double
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: m6
+
+	partition cohort_summary = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(#"DataFolder" & "\cohort_summary.csv"), [Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"cohort_month", type text}, {"m0", type number}, {"m1", type number}, {"m3", type number}, {"m6", type number}}, "en-US")
+			in
+				Typed

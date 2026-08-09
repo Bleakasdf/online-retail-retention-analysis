@@ -1,0 +1,58 @@
+table rfm_backtest
+
+	measure 'Backtest repeat rate' = AVERAGE(rfm_backtest[next_12m_repeat_rate])
+		formatString: 0.0%
+
+	measure 'Backtest customers' = SUM(rfm_backtest[customers])
+		formatString: #,##0
+
+	measure 'Next 12m revenue' = SUM(rfm_backtest[next_12m_revenue])
+		formatString: £ #,##0
+
+	column Segment
+		dataType: string
+		summarizeBy: none
+		sourceColumn: rfm_segment
+
+	column customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: customers
+
+	column historical_revenue
+		dataType: double
+		formatString: £ #,##0
+		summarizeBy: none
+		sourceColumn: historical_revenue
+
+	column avg_historical_revenue
+		dataType: double
+		summarizeBy: none
+		sourceColumn: avg_historical_revenue
+
+	column next_12m_repeat_rate
+		dataType: double
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: next_12m_repeat_rate
+
+	column next_12m_revenue
+		dataType: double
+		formatString: £ #,##0
+		summarizeBy: none
+		sourceColumn: next_12m_revenue
+
+	column avg_next_12m_revenue
+		dataType: double
+		summarizeBy: none
+		sourceColumn: avg_next_12m_revenue
+
+	partition rfm_backtest = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(#"DataFolder" & "\rfm_backtest.csv"), [Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"rfm_segment", type text}, {"customers", Int64.Type}, {"historical_revenue", type number}, {"avg_historical_revenue", type number}, {"next_12m_repeat_rate", type number}, {"next_12m_revenue", type number}, {"avg_next_12m_revenue", type number}}, "en-US")
+			in
+				Typed

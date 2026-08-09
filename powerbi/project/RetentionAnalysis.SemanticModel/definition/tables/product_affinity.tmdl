@@ -1,0 +1,43 @@
+table product_affinity
+
+	measure 'Product target customers' = SUM(product_affinity[target_customers])
+		formatString: #,##0
+
+	measure 'Product historical revenue' = SUM(product_affinity[historical_revenue])
+		formatString: £ #,##0
+
+	column stock_code
+		dataType: string
+		summarizeBy: none
+		sourceColumn: stock_code
+
+	column Product
+		dataType: string
+		summarizeBy: none
+		sourceColumn: product_description
+
+	column target_customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: target_customers
+
+	column units
+		dataType: double
+		summarizeBy: none
+		sourceColumn: units
+
+	column historical_revenue
+		dataType: double
+		formatString: £ #,##0
+		summarizeBy: none
+		sourceColumn: historical_revenue
+
+	partition product_affinity = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(#"DataFolder" & "\product_affinity.csv"), [Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"stock_code", type text}, {"product_description", type text}, {"target_customers", Int64.Type}, {"units", type number}, {"historical_revenue", type number}}, "en-US")
+			in
+				Typed

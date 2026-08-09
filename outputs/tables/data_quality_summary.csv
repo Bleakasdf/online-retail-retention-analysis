@@ -1,0 +1,9 @@
+check_order,quality_check,rows,share_of_raw_rows
+1,Raw rows,1067371,1.0
+2,Exact duplicate rows,34335,0.032167821685243465
+3,Rows without Customer ID,243007,0.22766872999172733
+4,Cancelled invoice rows,19494,0.018263565339511754
+5,Rows with non-positive quantity,22950,0.021501427338760374
+6,Rows with non-positive price,6207,0.005815222635803296
+7,Rows with invalid invoice date,0,0.0
+8,Rows in incomplete Dec-2011 period,25526,0.023914833736348468

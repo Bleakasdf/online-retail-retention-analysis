@@ -1,0 +1,43 @@
+table retention_horizons
+
+	measure 'Weighted retention' = AVERAGE(retention_horizons[weighted_retention_rate])
+		formatString: 0.0%
+
+	measure 'Eligible customers' = SUM(retention_horizons[eligible_cohort_customers])
+		formatString: #,##0
+
+	column month_number
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: month_number
+
+	column Horizon
+		dataType: string
+		summarizeBy: none
+		sourceColumn: horizon
+
+	column retained_customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: retained_customers
+
+	column eligible_cohort_customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: eligible_cohort_customers
+
+	column weighted_retention_rate
+		dataType: double
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: weighted_retention_rate
+
+	partition retention_horizons = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(#"DataFolder" & "\retention_horizons.csv"), [Delimiter=",", Columns=5, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"month_number", Int64.Type}, {"horizon", type text}, {"retained_customers", Int64.Type}, {"eligible_cohort_customers", Int64.Type}, {"weighted_retention_rate", type number}}, "en-US")
+			in
+				Typed

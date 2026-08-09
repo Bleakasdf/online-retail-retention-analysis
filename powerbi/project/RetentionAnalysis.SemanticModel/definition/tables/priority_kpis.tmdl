@@ -1,0 +1,75 @@
+table priority_kpis
+
+	measure 'Target customers' = MAX(priority_kpis[target_customers])
+		formatString: #,##0
+
+	measure 'At-risk customers' = MAX(priority_kpis[at_risk_customers])
+		formatString: #,##0
+
+	measure 'Lapsed customers' = MAX(priority_kpis[lapsed_customers])
+		formatString: #,##0
+
+	measure 'Target historical revenue' = MAX(priority_kpis[target_historical_revenue])
+		formatString: £ #,##0
+
+	measure 'UK target customers' = MAX(priority_kpis[uk_target_customers])
+		formatString: #,##0
+
+	measure 'UK target revenue' = MAX(priority_kpis[uk_target_revenue])
+		formatString: £ #,##0
+
+	measure 'At-risk backtest rate' = MAX(priority_kpis[at_risk_backtest_rate])
+		formatString: 0.0%
+
+	measure 'Lapsed backtest rate' = MAX(priority_kpis[lapsed_backtest_rate])
+		formatString: 0.0%
+
+	column target_customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: target_customers
+
+	column at_risk_customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: at_risk_customers
+
+	column lapsed_customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: lapsed_customers
+
+	column target_historical_revenue
+		dataType: double
+		summarizeBy: none
+		sourceColumn: target_historical_revenue
+
+	column uk_target_customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: uk_target_customers
+
+	column uk_target_revenue
+		dataType: double
+		summarizeBy: none
+		sourceColumn: uk_target_revenue
+
+	column at_risk_backtest_rate
+		dataType: double
+		summarizeBy: none
+		sourceColumn: at_risk_backtest_rate
+
+	column lapsed_backtest_rate
+		dataType: double
+		summarizeBy: none
+		sourceColumn: lapsed_backtest_rate
+
+	partition priority_kpis = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(#"DataFolder" & "\priority_kpis.csv"), [Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"target_customers", Int64.Type}, {"at_risk_customers", Int64.Type}, {"lapsed_customers", Int64.Type}, {"target_historical_revenue", type number}, {"uk_target_customers", Int64.Type}, {"uk_target_revenue", type number}, {"at_risk_backtest_rate", type number}, {"lapsed_backtest_rate", type number}}, "en-US")
+			in
+				Typed

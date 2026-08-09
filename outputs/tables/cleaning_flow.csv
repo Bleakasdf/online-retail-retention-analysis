@@ -1,0 +1,7 @@
+stage,rows,removed_from_previous,retained_share_of_raw
+Raw source,1067371,,1.0
+After exact deduplication,1033036,34335.0,0.9678321783147565
+After requiring Customer ID,797885,235151.0,0.7475235883305804
+After excluding cancellations,779495,18390.0,0.7302943400186065
+After positive quantity and price,779425,70.0,0.7302287583230198
+Analysis-ready clean rows,779425,0.0,0.7302287583230198

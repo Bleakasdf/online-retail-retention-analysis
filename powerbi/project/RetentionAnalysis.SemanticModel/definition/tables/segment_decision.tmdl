@@ -1,0 +1,51 @@
+table segment_decision
+
+	column Segment
+		dataType: string
+		summarizeBy: none
+		sourceColumn: rfm_segment
+
+	column Customers
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: current_customers
+
+	column 'Trailing revenue'
+		dataType: double
+		formatString: £ #,##0
+		summarizeBy: none
+		sourceColumn: trailing_12m_revenue
+
+	column 'Average customer revenue'
+		dataType: double
+		formatString: £ #,##0
+		summarizeBy: none
+		sourceColumn: avg_customer_revenue
+
+	column 'Average recency days'
+		dataType: double
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: avg_recency_days
+
+	column 'Backtest repeat rate'
+		dataType: double
+		formatString: 0.0%
+		summarizeBy: none
+		sourceColumn: next_12m_repeat_rate
+
+	column 'Average next 12m revenue'
+		dataType: double
+		formatString: £ #,##0
+		summarizeBy: none
+		sourceColumn: avg_next_12m_revenue
+
+	partition segment_decision = m
+		mode: import
+		source =
+			let
+				Source = Csv.Document(File.Contents(#"DataFolder" & "\segment_decision.csv"), [Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				Headers = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				Typed = Table.TransformColumnTypes(Headers, {{"rfm_segment", type text}, {"current_customers", Int64.Type}, {"trailing_12m_revenue", type number}, {"avg_customer_revenue", type number}, {"avg_recency_days", type number}, {"next_12m_repeat_rate", type number}, {"avg_next_12m_revenue", type number}}, "en-US")
+			in
+				Typed
