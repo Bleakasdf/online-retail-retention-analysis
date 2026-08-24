@@ -216,6 +216,12 @@ Use a holdout group and measure:
 
 Do not report the £468k historical revenue as expected campaign revenue. Campaign value must be measured against the holdout after launch.
 
+## Experiment readiness
+
+The UK High-Value At Risk segment contains only **78 eligible customers**. With a 50/50 split, the pilot has about 39 customers per arm and can detect only a very large effect: approximately **+25 percentage points** from the historical 67.6% repeat-purchase baseline. Detecting a more moderate **+10 percentage-point** lift would require about **312 customers per arm**.
+
+Therefore the first wave should be reported as signal-seeking, with a true holdout and confidence intervals. Identically designed waves can be pooled until the predeclared sample is reached. The calculation and measurement contract are in [outputs/experiment_plan.md](outputs/experiment_plan.md).
+
 ## Limitations
 
 - Customer IDs are missing from 22.8% of raw rows; customer analysis cannot use those transactions.
@@ -248,9 +254,11 @@ python scripts/download_data.py
 python scripts/build_analysis.py
 python scripts/build_notebook.py
 python scripts/build_powerbi_project.py
+python scripts/plan_experiment.py
 python scripts/validate_project.py
 ```
 
 ## Data and tools
 
 Dataset: [UCI Online Retail II](https://archive.ics.uci.edu/dataset/502/online+retail+ii). Tools: SQL (SQLite), Python, Jupyter Notebook, and Power BI.
+
